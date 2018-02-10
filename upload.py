@@ -1,19 +1,7 @@
-from flask import Flask
-from flask import request
+from flask import Flask, render_template, request
 from flask_uploads import UploadSet, configure_uploads, IMAGES
-from flask import render_template
 
 app = Flask(__name__)
-
-
-@app.route('/')
-def index():
-    return "welcome to the index" 
-
-@app.route('/hayabusa')
-def hello_world():
-    return str(2+4)
-
 
 photos = UploadSet('photos', IMAGES)
 
