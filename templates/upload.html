@@ -3,6 +3,7 @@
 	<title>Upload</title>
 </head>
 <body>
+<h1>Please upload a csv file of your location data with the following columns: date, latitude, longitude</h1>
 <form method=POST enctype=multipart/form-data action="{{ url_for('upload') }}">
     <input type=file name=data>
     <input type="submit">

@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from flask_uploads import UploadSet, configure_uploads, DATA
+import pandas as pd
 
 app = Flask(__name__)
 
@@ -14,7 +15,9 @@ configure_uploads(app, loc_data)
 def upload():
     if request.method == 'POST' and 'data' in request.files:
         filename = loc_data.save(request.files['data'])
-        return filename
+        df = pd.read_csv('static/img/' + filename)
+        return list(df)[1]
+        
     return render_template('upload.html')
 
 
