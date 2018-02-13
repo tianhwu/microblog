@@ -42,7 +42,7 @@ def upload():
         df[dt_cols] = df[dt_cols].apply(pd.to_datetime)
 
         #Calculates a timedelta based and creates a new integer column. Casting sucks in python
-        df = df.assign(days_delta=df.date - df.date.min(axis=0)
+        df = df.assign(days_delta=df.date - df.date.min(axis=0))
         df[['days_int']] = (df[['days_delta']]/np.timedelta64(1, 'D')).astype(np.int64)
 
         #Generates a heatmap centered on New York
